@@ -1,42 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Chat com Ollama</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; }
-    #chat { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll; margin-bottom: 10px; }
-    #userInput { width: 80%; padding: 5px; }
-    button { padding: 5px 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Ollama</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h2>Chat com Ollama</h2>
-  <div id="chat"></div>
-  <input id="userInput" type="text" placeholder="Digite sua mensagem" />
-  <button onclick="sendMessage()">Enviar</button>
-
-  <script>
-    async function sendMessage() {
-      const input = document.getElementById("userInput");
-      const message = input.value;
-      input.value = "";
-
-      const chat = document.getElementById("chat");
-      chat.innerHTML += `<p><strong>Você:</strong> ${message}</p>`;
-
-      const response = await fetch('http://127.0.0.1:8000/chat', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({message: message})
-      
-
-});
-     const data = await res.json();
-      chat.innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
-      chat.scrollTop = chat.scrollHeight;
-    }
-  </script>
+    <div class="chat-container">
+        <h1>Chatbot com Ollama</h1>
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
 
